@@ -21,7 +21,7 @@ export default function Header() {
           transition={{ duration: 0.3 }}
         >
           <Image
-            src="/img1.jpeg"
+            src="/images/img33.jpeg"
             alt="Profile"
             width={100}
             height={100}
