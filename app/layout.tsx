@@ -11,10 +11,34 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio | Engineer & Creator",
-  description: "Minimalist portfolio showcasing my work as an engineer and creative artist",
+  title: "Aisha — building things & narrating the journey",
+  description: "Code, photography, writing, and side quests.",
+
   icons: {
     icon: "/favicon.ico",
+  },
+
+  openGraph: {
+    title: "Aisha — building things & narrating the journey",
+    description: "Code, photography, writing, and side quests.",
+    url: "https://aisha.vercel.app", 
+    siteName: "Aisha",
+    images: [
+      {
+        url: "/thumbnail.png", 
+        width: 1200,
+        height: 627,
+        alt: "Aisha personal website preview",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Aisha — building things & narrating the journey",
+    description: "Code, photography, writing, and side quests.",
+    images: ["/thumbnail.png"],
   },
 }
 
