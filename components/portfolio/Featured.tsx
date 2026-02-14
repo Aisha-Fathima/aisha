@@ -14,7 +14,7 @@ export default function Featured() {
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <Link href="https://youtube.com/shorts/RCoFsz3xXto" target="_blank">
+      <Link href="https://youtube.com/shorts/NbfB44uT2g4" target="_blank">
         <motion.div
           className="group relative overflow-hidden rounded-xl p-1 cursor-pointer"
           whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
