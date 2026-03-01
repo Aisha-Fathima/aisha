@@ -21,7 +21,7 @@ export default function Featured() {
         >
           <div className="relative aspect-video overflow-hidden rounded-lg bg-black">
             <Image
-              src="/images/a1.png"
+              src="/images/img15.jpeg"
               alt="Featured project"
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"

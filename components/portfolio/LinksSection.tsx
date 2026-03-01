@@ -9,6 +9,7 @@ import {
   BookmarkIcon,
   PenTool,
   FileText,
+  Terminal,
 } from 'lucide-react'
 import LinkCard from './LinkCard'
 
@@ -18,6 +19,12 @@ const links = [
     title: 'projects',
     description: 'things I built instead of sleeping responsibly',
     href: 'https://github.com/Aisha-Fathima',
+  },
+  {
+  icon: Terminal,
+  title: 'portfolio',
+  description: 'ideas that survived production',
+  href: 'https://aishafathimamohammed.vercel.app/',
   },
   {
     icon: Camera,

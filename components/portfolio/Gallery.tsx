@@ -1,88 +1,62 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-const rules = [
-  "time moves faster after midnight",
-  "snacks taste better when nobody is watching",
-  "the best songs appear when least expected",
-  "sleep becomes urgent exactly when it’s too late",
-]
-
-export default function RulesTerminal() {
-  const [typedLines, setTypedLines] = useState<string[]>([])
-  const [currentLine, setCurrentLine] = useState(0)
-  const [currentChar, setCurrentChar] = useState(0)
-  const [started, setStarted] = useState(false)
-
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  // initialize empty lines
-  useEffect(() => {
-    setTypedLines(new Array(rules.length).fill(""))
-  }, [])
-
-  // start typing when visible
-  useEffect(() => {
-    if (isInView) {
-      setStarted(true)
-    }
-  }, [isInView])
-
-  // typing logic
-  useEffect(() => {
-    if (!started) return
-    if (currentLine >= rules.length) return
-
-    const timeout = setTimeout(() => {
-      const line = rules[currentLine]
-
-      if (currentChar < line.length) {
-        setTypedLines(prev => {
-          const updated = [...prev]
-          updated[currentLine] = line.slice(0, currentChar + 1)
-          return updated
-        })
-        setCurrentChar(currentChar + 1)
-      } else {
-        setCurrentLine(currentLine + 1)
-        setCurrentChar(0)
-      }
-    }, 30)
-
-    return () => clearTimeout(timeout)
-  }, [currentChar, currentLine, started])
-
+export default function CinematicEnding() {
   return (
-    <section ref={ref} className="py-27 flex justify-center px-6 bg-black">
-      <div className="w-full max-w-2xl rounded-lg border border-white/10 bg-black/70 p-6 font-mono text-sm text-neutral-300 shadow-xl">
+    <section className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 bg-black">
 
-        {/* Terminal header */}
-        <div className="mb-4">
-          <span className="text-green-400">aisha@portfolio</span>
-          <span className="text-neutral-500">:</span>
-          <span className="text-blue-400">~</span>
-          <span className="text-neutral-500">$ </span>
-          <span>rules_of_universe.log</span>
-          <span className="animate-pulse">▍</span>
-        </div>
+      {/* Cinematic line */}
+      <motion.p
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="max-w-3xl text-xl md:text-2xl font-light tracking-wide text-neutral-100 leading-relaxed"
+      >
+        if sarcasm and building cool things sound like a good time,
+        <br />
+        you’re in the right place.
+      </motion.p>
 
-        {/* Typed rules */}
-        <div className="space-y-2">
-          {typedLines.map((line, index) => (
-            <p key={index} className="text-amber-300">
-              {line && "> "}
-              {line}
-              {started && index === currentLine && (
-                <span className="animate-pulse">▍</span>
-              )}
-            </p>
-          ))}
-        </div>
+      {/* Shield badges */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 0.8 }}
+        viewport={{ once: true }}
+        className="mt-10 flex flex-wrap justify-center gap-3"
+      >
+        <a
+          href="https://www.linkedin.com/in/aisha-fathima-mohammed/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="LinkedIn"
+            src="https://img.shields.io/badge/LinkedIn-%230E76A8.svg?style=for-the-badge&logo=LinkedIn&logoColor=white"
+          />
+        </a>
 
-      </div>
+        <a
+          href="https://github.com/Aisha-Fathima"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            alt="GitHub"
+            src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"
+          />
+        </a>
+
+        <a href="mailto:aishafathimamohamme@gmail.com">
+          <img
+            alt="Email"
+            src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"
+          />
+        </a>
+      </motion.div>
+
     </section>
   )
 }
